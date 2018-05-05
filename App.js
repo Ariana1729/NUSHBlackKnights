@@ -1,9 +1,12 @@
+
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Alert, AppRegistry, StyleSheet, Text, View, Button } from 'react-native';
 
 export default class App extends React.Component {
+
   render() {
     return (
+
       <View style={{
           flexDirection: 'column',
           flex: 1,
@@ -11,7 +14,11 @@ export default class App extends React.Component {
         }}>
         <View style={styles.container1}></View>
         <View style={styles.container2}>
-          <Text style={styles.white}>NUS High Black Knights</Text>
+          <Text style={styles.hamburgerButton}
+          onPress={() => {
+               Alert.alert('You tapped the button!');
+          }}> ≡</Text>
+          <Text style={styles.white}>    NUS High Black Knights</Text>
         </View>
         <View style={styles.container3}>
           <Text style={styles.white}>Home page</Text>
@@ -20,6 +27,7 @@ export default class App extends React.Component {
           <Text style={styles.white}>Menu</Text>
         </View>
       </View>
+
     );
   }
 }
@@ -34,8 +42,9 @@ const styles = StyleSheet.create({
   container2: {
     flex: 2.2,
     backgroundColor: '#181830',
-    alignItems: 'flex-start',
-    justifyContent: 'center',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    flexDirection: 'row',
   },
   container3: {
     flex: 21.8,
@@ -45,5 +54,14 @@ const styles = StyleSheet.create({
   },
   white: {
     color: 'white',
+    fontSize: 20,
   },
+  hamburgerButton: {
+      color: 'white',
+      fontSize: 40,
+ }
+
 });
+
+AppRegistry.registerComponent('TestApp2', () => App);
+
